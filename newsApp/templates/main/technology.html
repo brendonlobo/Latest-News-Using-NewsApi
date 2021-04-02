@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cyborg/bootstrap.min.css"
+    integrity="sha512-QzwqVdCfEIUhmovYlJ/ET11Uh4MLuvEpwVpTVTRhChwzgfkrQH9BMcDvgwFpi5fMUGVLJAPsEXJVHuODuhmctg=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>News App</title>
+</head>
+
+
+
+<!-- Card for header -->
+<div class="jumbotron" style="text-align: center; margin-top:40px">
+  <h2>Latest News using news API</a></h2>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html"><i class="fa fa-fire" aria-hidden="true"></i> Trending</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="entertainment.html"><i class="fa fa-film" aria-hidden="true"></i> Entertainment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sports.html"><i class="fa fa-trophy" aria-hidden="true"></i> Sports</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#"><i class="fa fa-code" aria-hidden="true"></i> Technology</a>
+        </li>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<!-- Main -->
+<div class="container">
+  {% for hl, des, img , url in mylist %}
+
+  <div class="card border-primary mb-2">
+    {% if img is null %}
+    <img src="{% static 'images/dj.png' %}" alt="">
+    {% else %}
+    <img src="{{ img }}" alt="image">
+    {% endif %}
+  </div>
+  <div class="card border-primary mb-2">
+    <h4><span class="badge badge-primary">Headline:</span></h4>
+    <h5>{{ hl }}{{ value|linebreaks }}</h5>
+    <h4> <span class="badge badge-success">Description:</span></h4>
+    <h5>{{ des }}{{ value|linebreaks }}</h5>
+    <a href="{{ url }}">Click Here To navigate to the Article</a>
+  </div>
+  {% endfor %}
+
+  </body>
+
+</html>
