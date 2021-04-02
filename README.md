@@ -1,2 +1,2 @@
 # Latest-News-Using-NewsApi
-This is the best news apps 
+A one place to go news app which updates you with the latest news and news as per categories of your choices.
